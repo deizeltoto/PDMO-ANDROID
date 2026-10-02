@@ -19,9 +19,7 @@ import com.example.apppdmo.data.local.entity.FavoriteContentEntity
 import com.example.apppdmo.data.local.entity.FavoriteSongEntity
 import com.example.apppdmo.data.local.entity.FavoriteVerseEntity
 import com.example.apppdmo.data.local.entity.SongEntity
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Database(
