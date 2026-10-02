@@ -17,6 +17,7 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
 class BibleRepositoryImpl(
+    private val database: com.example.apppdmo.data.local.database.AppDatabase,
     private val bibleDao: BibleDao,
     private val lastReadPreferences: LastReadPreferences
 ) : BibleRepository {
@@ -75,6 +76,7 @@ class BibleRepositoryImpl(
 
     override suspend fun ensureBibleDataSeeded(context: Context) {
         withContext(Dispatchers.IO) {
+          com.example.apppdmo.data.remote.SyncCoordinator.seed(database) {
             if (bibleDao.getBookCount() == 0) {
                 try {
                     val jsonString = context.assets.open("bible.json").bufferedReader().use { it.readText() }
@@ -139,6 +141,7 @@ class BibleRepositoryImpl(
                     e.printStackTrace()
                 }
             }
+          }
         }
     }
 }

@@ -15,6 +15,7 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 
 class CommunityRepositoryImpl(
+    private val database: AppDatabase,
     private val dailyMessageDao: DailyMessageDao,
     private val contentDao: ContentDao
 ) : CommunityRepository {
@@ -81,6 +82,7 @@ class CommunityRepositoryImpl(
 
     override suspend fun ensureDemoDataSeeded(context: Context?) {
         withContext(Dispatchers.IO) {
+          com.example.apppdmo.data.remote.SyncCoordinator.seed(database) {
             AppDatabase.populateDatabase(dailyMessageDao, contentDao)
 
             if (context != null && contentDao.getCount() <= 3) {
@@ -120,6 +122,7 @@ class CommunityRepositoryImpl(
                     e.printStackTrace()
                 }
             }
+          }
         }
     }
 }

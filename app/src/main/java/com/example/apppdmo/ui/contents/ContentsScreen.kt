@@ -72,7 +72,7 @@ fun ContentsScreen(
         ) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "📚 Conteúdos",
+                text = "Conteúdos",
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary

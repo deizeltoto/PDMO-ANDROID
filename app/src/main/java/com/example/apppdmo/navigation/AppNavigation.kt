@@ -7,6 +7,8 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import com.example.apppdmo.ui.server.ServerScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -47,6 +49,11 @@ fun AppNavigation(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        topBar = {
+            TextButton(onClick = { navController.navigate("server") { launchSingleTop = true } }) {
+                Text("Servidor")
+            }
+        },
         bottomBar = {
             NavigationBar {
                 BottomNavItem.items.forEach { item ->
@@ -84,6 +91,9 @@ fun AppNavigation(
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable("server") {
+                ServerScreen(onBack = { navController.popBackStack() })
+            }
             composable(Screen.Home.route) {
                 HomeScreen(
                     repository = communityRepository,

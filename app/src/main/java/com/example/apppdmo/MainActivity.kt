@@ -39,17 +39,20 @@ class MainActivity : ComponentActivity() {
 
         val database = AppDatabase.getDatabase(applicationContext)
         val communityRepository = CommunityRepositoryImpl(
+            database = database,
             dailyMessageDao = database.dailyMessageDao(),
             contentDao = database.contentDao()
         )
 
         val lastReadPreferences = LastReadPreferences(applicationContext)
         val bibleRepository = BibleRepositoryImpl(
+            database = database,
             bibleDao = database.bibleDao(),
             lastReadPreferences = lastReadPreferences
         )
 
         val songsRepository = SongsRepositoryImpl(
+            database = database,
             songDao = database.songDao()
         )
 

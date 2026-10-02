@@ -12,6 +12,7 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 
 class SongsRepositoryImpl(
+    private val database: com.example.apppdmo.data.local.database.AppDatabase,
     private val songDao: SongDao
 ) : SongsRepository {
 
@@ -53,6 +54,7 @@ class SongsRepositoryImpl(
 
     override suspend fun ensureSongsDataSeeded(context: Context) {
         withContext(Dispatchers.IO) {
+          com.example.apppdmo.data.remote.SyncCoordinator.seed(database) {
             if (songDao.getSongCount() == 0) {
                 try {
                     val jsonString = context.assets.open("songs.json").bufferedReader().use { it.readText() }
@@ -88,6 +90,7 @@ class SongsRepositoryImpl(
                     e.printStackTrace()
                 }
             }
+          }
         }
     }
 }

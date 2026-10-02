@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.room.migration.Migration
+import com.example.apppdmo.data.local.entity.SyncStateEntity
 import com.example.apppdmo.data.local.dao.BibleDao
 import com.example.apppdmo.data.local.dao.ContentDao
 import com.example.apppdmo.data.local.dao.DailyMessageDao
@@ -31,9 +33,10 @@ import kotlinx.coroutines.withContext
         FavoriteVerseEntity::class,
         SongEntity::class,
         FavoriteSongEntity::class,
-        FavoriteContentEntity::class
+        FavoriteContentEntity::class,
+        SyncStateEntity::class
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -55,21 +58,15 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "app_pdmo_database"
                 )
-                    .addCallback(DatabaseCallback(appContext))
+                    .addMigrations(object : Migration(4, 5) {
+                        override fun migrate(db: SupportSQLiteDatabase) {
+                            db.execSQL("CREATE TABLE IF NOT EXISTS sync_state (id INTEGER NOT NULL PRIMARY KEY, serverUrl TEXT NOT NULL, syncedAt INTEGER NOT NULL)")
+                        }
+                    })
                     .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 instance
-            }
-        }
-
-        private class DatabaseCallback(private val appContext: Context) : Callback() {
-            override fun onCreate(db: SupportSQLiteDatabase) {
-                super.onCreate(db)
-                CoroutineScope(Dispatchers.IO).launch {
-                    val database = getDatabase(appContext)
-                    populateDatabase(database.dailyMessageDao(), database.contentDao())
-                }
             }
         }
 
