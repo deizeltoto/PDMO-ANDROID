@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "A Importância da Oração na Vida Cristã",
+    "description": "Um estudo profundo sobre como a oração contínua transforma o coração e fortalece a comunhão comunitária.",
+    "body": "A oração é o respirar da alma cristã. Quando nos inclinamos diante de Deus em oração sincera, reconhecemos a nossa dependência do Criador e abrimos espaço para que o Espírito Santo transforme as nossas atitudes.\n\nNo Evangelho de Mateus 6:6, Jesus ensina sobre a oração secreta e sincera: 'Tu, porém, quando orares, entra no teu quarto e, fechada a porta, orarás a teu Pai'. A oração comunitária também possui promessas gloriosas, unindo corações em torno de um propósito santo.\n\nPratique a oração diariamente: ao acordar, durante o trabalho, nos momentos de angústia e nas horas de profunda alegria. A gratidão deve ser a marca registrada de todo cristão.",
+    "author": "Pr. João Silva",
+    "type": "ESTUDO",
+    "imageUrl": null,
+    "createdAt": "02 Outubro 2026"
+  },
+  {
+    "id": 2,
+    "title": "Fé e Perseverança em Tempos de Provação",
+    "description": "Análise bíblica sobre como manter a fé inabalável fundamentada nas Escrituras Sagradas.",
+    "body": "As provações fazem parte da jornada humana, mas para o crente, elas funcionam como um refinamento da fé. Em Tiago 1:2-4 lemos: 'Meus irmãos, tende por motivo de toda a alegria o passardes por várias provações, sabendo que a provação da vossa fé produz perseverança'.\n\nManter a fé quando tudo ao redor parece incerto exige raízes profundas na Palavra de Deus. A perseverança não é uma atitude passiva, mas uma confiança ativa de que Aquele que começou a boa obra é fiel para a completar.\n\nQuando enfrentares momentos difíceis, medita nos Salmos, busca conselho na igreja e lembra-te das vitórias passadas que Deus já te concedeu.",
+    "author": "Diác. Ana Maria",
+    "type": "ESTUDO",
+    "imageUrl": null,
+    "createdAt": "01 Outubro 2026"
+  },
+  {
+    "id": 3,
+    "title": "O Sermão do Monte e a Ética do Reino",
+    "description": "Estudo detalhado das Bem-Aventuranças de Mateus 5 e seu impacto na vida diária.",
+    "body": "O Sermão do Monte representa o núcleo do ensino de Jesus sobre o Reino de Deus. Nas Bem-Aventuranças, Jesus vira a lógica do mundo ao contrário: os humildes, os pacificadores e os puros de coração são chamados de abençoados.\n\nViver a ética do Reino significa responder ao ódio com amor, perdoar 70 vezes 7 e procurar ser luz no mundo e sal da terra.",
+    "author": "Pr. Mateus Costa",
+    "type": "ESTUDO",
+    "imageUrl": null,
+    "createdAt": "28 Setembro 2026"
+  },
+  {
+    "id": 4,
+    "title": "Fé nos Momentos Difíceis",
+    "description": "Pregação edificante sobre como a presença do Senhor nos sustenta nas tempestades da vida.",
+    "body": "Irmãos e irmãs, mesmo quando o mar da vida se agita e os ventos contrários tentam abalar a nossa esperança, temos a promessa inabalável de Cristo: 'No mundo tereis aflições; mas tende bom ânimo, eu venci o mundo' (João 16:33).\n\nJesus não prometeu a ausência de tempestades, mas garantiu a Sua presença constante dentro do barco. Quando Pedro tirou os olhos de Jesus e olhou para o vento, começou a afundar; contudo, ao clamar 'Senhor, salva-me!', Jesus estendeu a mão imediatamente.\n\nClama hoje ao Senhor, entrega os teus temores e confia no Teu poder restaurador!",
+    "author": "Pr. Mateus Costa",
+    "type": "Pregação",
+    "imageUrl": null,
+    "createdAt": "29 Setembro 2026"
+  },
+  {
+    "id": 5,
+    "title": "A Graça que Transforma Corações",
+    "description": "Mensagem inspiradora sobre o poder imensurável da graça divina e do perdão libertador.",
+    "body": "A graça de Deus é o favor imerecido concedido à humanidade. Não fomos salvos pelas nossas próprias obras ou méritos, mas pela misericórdia de Deus em Cristo Jesus.\n\nEsta graça não nos dá licença para acomodação, mas transforma profundamente a nossa mente, renovando o nosso amor pelo próximo e capacitando-nos a viver em santidade e alegria.",
+    "author": "Pr. João Silva",
+    "type": "Pregação",
+    "imageUrl": null,
+    "createdAt": "25 Setembro 2026"
+  },
+  {
+    "id": 6,
+    "title": "O Poder do Louvor e da Adoração Sincera",
+    "description": "Pregação sobre a libertação e milagres que acontecem quando a comunidade louva de coração.",
+    "body": "Quando Paulo e Silas estavam presos em Filipos, à meia-noite eles oravam e cantavam hinos a Deus. De repente, sobreveio um grande terremoto, os alicerces do cárcere se moveram e todas as cadeias se soltaram!\n\nO louvor libertador rompe correntes espirituais, afasta o desânimo e atrai a presença manifesta do Altíssimo.",
+    "author": "Pr. André Lucas",
+    "type": "Pregação",
+    "imageUrl": null,
+    "createdAt": "20 Setembro 2026"
+  },
+  {
+    "id": 7,
+    "title": "Viver em União e Amor Fraterno",
+    "description": "Artigo reflexivo sobre a essência do mandamento do amor e da comunhão cristã.",
+    "body": "No Salmo 133:1 está escrito: 'Oh! Quão bom e quão suave é que os irmãos vivam em união!'. A comunhão fraterna é um testemunho vivo do Evangelho perante a sociedade.\n\nNum mundo marcado pela divisão e pelo individualismo, a igreja é chamada a ser um oásis de acolhimento, compaixão e amor prático. Servir uns aos outros com humildade fortalece o corpo de Cristo.",
+    "author": "Diác. Ana Maria",
+    "type": "ARTIGO",
+    "imageUrl": null,
+    "createdAt": "30 Setembro 2026"
+  },
+  {
+    "id": 8,
+    "title": "A Família como Altar de Adoração",
+    "description": "Artigo sobre a importância do culto doméstico e da transmissão dos valores cristãos aos filhos.",
+    "body": "O lar é a primeira escola de fé. O cultivo da Palavra de Deus em família cria raízes sólidas nas crianças e jovens, preparando-os para enfrentar os desafios do mundo com valores firmes em Cristo.\n\nIncentive momentos diários de leitura bíblica e oração em família.",
+    "author": "Sem. Carlos Eduardo",
+    "type": "ARTIGO",
+    "imageUrl": null,
+    "createdAt": "27 Setembro 2026"
+  },
+  {
+    "id": 9,
+    "title": "Esperança Eterna na Promessa da Salvação",
+    "description": "Reflexão sobre a esperança cristã que supera as dores do tempo presente.",
+    "body": "A nossa esperança não se limita a esta vida terrena. Temos a promessa gloriosa da vida eterna e da renovação de todas as coisas em Deus. Esta esperança purifica-nos e enche os nossos corações de paz inabalável.",
+    "author": "Diác. Ana Maria",
+    "type": "ARTIGO",
+    "imageUrl": null,
+    "createdAt": "22 Setembro 2026"
+  }
+]

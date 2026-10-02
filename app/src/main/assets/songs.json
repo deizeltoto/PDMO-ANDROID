@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "number": 1,
+    "title": "Grande é o Senhor",
+    "category": "Adoração",
+    "author": "Comunidade Verbum",
+    "lyrics": "Grande é o Senhor e mui digno de louvor\nNa cidade do nosso Deus, no seu monte santo.\nA alegria de toda a terra é o Senhor!\n\nGrande é o Senhor em quem nós temos a vitória,\nQue nos ajuda contra o inimigo.\nPor isso diante Dele nos prostramos\nE exaltamos o seu santo nome!\n\nQueremos o teu nome engrandecer\nE agradecer-te por tua bondade.\nPois só tu és Deus soberano e fiel,\nPara sempre reinas sobre nós!"
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "title": "Quão Grande és Tu",
+    "category": "Adoração",
+    "author": "Hino Tradicional",
+    "lyrics": "Senhor meu Deus, quando eu maravilhado\nContemplo a tua imensa criação,\nAs estrelas, o céu e o mar infinito,\nSinto a grandeza do teu coração.\n\nEntão minh'alma canta a ti, Senhor:\nQuão grande és Tu! Quão grande és Tu!\nEntão minh'alma canta a ti, Senhor:\nQuão grande és Tu! Quão grande és Tu!\n\nE quando penso que teu Filho amado\nVeio à terra para me salvar,\nNa cruz vertendo o seu sangue precioso,\nPara os meus pecados perdoar!"
+  },
+  {
+    "id": 3,
+    "number": 3,
+    "title": "Vem, Esta é a Hora da Adoração",
+    "category": "Entrada",
+    "author": "Louvor & Adoração",
+    "lyrics": "Vem, esta é a hora da adoração!\nVem, dar-lhe o teu coração!\nVem, assim como estás para adorar!\nVem, assim como estás diante do Pai!\n\nToda língua confessará que tu és Deus,\nTodo joelho se dobrará!\nMas a maior bênção terá aquele que\nTe escolhe como seu Rei!"
+  },
+  {
+    "id": 4,
+    "number": 4,
+    "title": "Oração do Agradecimento",
+    "category": "Oração",
+    "author": "Comunidade Verbum",
+    "lyrics": "Senhor, perante a tua presença nos inclinamos,\nAgradecidos pela graça e pela vida.\nTu ouves o clamor do teu povo que orando busca,\nE trazes paz à nossa alma aflita.\n\nAtende, ó Deus, a nossa humilde oração,\nDerrama a tua bênção sobre a comunidade.\nFortalece os fracos, renova a esperança,\nE guia-nos na tua eterna verdade."
+  },
+  {
+    "id": 5,
+    "number": 5,
+    "title": "Tudo Entregamos em Tua Mesa",
+    "category": "Ofertório",
+    "author": "Coro Comunitário",
+    "lyrics": "Trazemos ao teu altar, Senhor, o nosso pão e o nosso vinho,\nFrutos da terra e do trabalho do teu povo em caminho.\n\nTudo o que somos e o que temos entregamos a ti,\nComo oferta de gratidão e louvor aqui.\n\nAta a nossa vida ao teu amor supremo,\nTransforma a nossa oferta em graça e salvação!"
+  },
+  {
+    "id": 6,
+    "number": 6,
+    "title": "Quão Bom e Suave é Viver em União",
+    "category": "Comunhão",
+    "author": "Grupo de Comunhão",
+    "lyrics": "Oh! Quão bom e quão suave é\nQue os irmãos vivam em união!\nÉ como o óleo precioso sobre a cabeça,\nComo o orvalho de Hermom que desce nos montes.\n\nPorque ali o Senhor ordena a bênção\nE a vida para sempre!\n\nLouvemos juntos ao Senhor da glória,\nPois no seu amor somos um só corpo em Cristo!"
+  },
+  {
+    "id": 7,
+    "number": 7,
+    "title": "A Alegria do Senhor é a Nossa Força",
+    "category": "Louvor",
+    "author": "Comunidade Verbum",
+    "lyrics": "A alegria do Senhor é a nossa força!\nA alegria do Senhor é a nossa força!\nSe a tristeza quiser nos fazer parar,\nSaberemos que em Deus podemos confiar!\n\nCantai ao Senhor um Cântico novo,\nCelebrai com palmas e com júbilo!\nPois grande é a sua misericórdia\nE o seu amor dura para sempre!"
+  },
+  {
+    "id": 8,
+    "number": 8,
+    "title": "Paz e Bênção na Partida",
+    "category": "Encerramento",
+    "author": "Hino de Despedida",
+    "lyrics": "Que a paz de Deus, que excede todo o entendimento,\nGuarde os vossos corações e mentes em Cristo Jesus.\n\nIde em paz e servi ao Senhor com alegria,\nLevando a luz do Evangelho em cada novo dia.\n\nAmém! Amém! Aleluia e Glória a Deus!"
+  }
+]

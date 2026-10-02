@@ -1,0 +1,289 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Génesis",
+      "abbreviation": "Gn",
+      "testament": "OLD_TESTAMENT",
+      "bookOrder": 1,
+      "chapterCount": 50,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 1, "text": "No princípio, criou Deus os céus e a terra." },
+            { "verse": 2, "text": "A terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
+            { "verse": 3, "text": "E disse Deus: Haja luz; e houve luz." },
+            { "verse": 4, "text": "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
+            { "verse": 5, "text": "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Êxodo",
+      "abbreviation": "Êx",
+      "testament": "OLD_TESTAMENT",
+      "bookOrder": 2,
+      "chapterCount": 40,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 1, "text": "Estes são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com a sua família:" },
+            { "verse": 2, "text": "Rúben, Simeão, Levi, e Judá;" },
+            { "verse": 3, "text": "Issacar, Zabulom, e Benjamim;" },
+            { "verse": 4, "text": "Dã, e Naftali, Gade, e Aser." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Salmos",
+      "abbreviation": "Sal",
+      "testament": "OLD_TESTAMENT",
+      "bookOrder": 19,
+      "chapterCount": 150,
+      "chapters": [
+        {
+          "chapter": 23,
+          "verses": [
+            { "verse": 1, "text": "O Senhor é o meu pastor, nada me faltará." },
+            { "verse": 2, "text": "Deitar-me faz em verdes pastos, guia-me suavemente a águas tranquilas." },
+            { "verse": 3, "text": "Refrigera a minha alma; guia-me pelas veredas da justiça, por amor do seu nome." },
+            { "verse": 4, "text": "Ainda que eu andasse pelo vale da sombra da morte, não temeria mal algum, porque tu estás comigo; a tua vara e o teu cajado me consolam." },
+            { "verse": 5, "text": "Preparas uma mesa perante mim na presença dos meus inimigos, unges a minha cabeça com óleo, o meu cálice transborda." },
+            { "verse": 6, "text": "Certamente que a bondade e a misericórdia me seguirão todos os dias da minha vida; e habitarei na casa do Senhor por longos dias." }
+          ]
+        },
+        {
+          "chapter": 37,
+          "verses": [
+            { "verse": 1, "text": "Não te indignes por causa dos malfeitores, nem tenhas inveja dos que praticam a iniquidade." },
+            { "verse": 2, "text": "Porque em breve serão ceifados como a erva, e murcharão como a verdura." },
+            { "verse": 3, "text": "Confia no Senhor e faze o bem; habitarás na terra, e verdadeiramente serás alimentado." },
+            { "verse": 4, "text": "Deleita-te também no Senhor, e ele te concederá os desejos do teu coração." },
+            { "verse": 5, "text": "Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará." },
+            { "verse": 6, "text": "E ele fará sobressair a tua justiça como a luz, e o teu juízo como o meio-dia." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Provérbios",
+      "abbreviation": "Pv",
+      "testament": "OLD_TESTAMENT",
+      "bookOrder": 20,
+      "chapterCount": 31,
+      "chapters": [
+        {
+          "chapter": 3,
+          "verses": [
+            { "verse": 5, "text": "Confia no Senhor de todo o teu coração, e não te estribes no teu próprio entendimento." },
+            { "verse": 6, "text": "Reconhece-o em todos os teus caminhos, e ele endireitará as tuas veredas." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Isaías",
+      "abbreviation": "Is",
+      "testament": "OLD_TESTAMENT",
+      "bookOrder": 23,
+      "chapterCount": 66,
+      "chapters": [
+        {
+          "chapter": 40,
+          "verses": [
+            { "verse": 29, "text": "Dá força ao cansado, e multiplica as forças ao que não tem nenhum vigor." },
+            { "verse": 31, "text": "Mas os que esperam no Senhor renovarão as forças, subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Mateus",
+      "abbreviation": "Mt",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 40,
+      "chapterCount": 28,
+      "chapters": [
+        {
+          "chapter": 5,
+          "verses": [
+            { "verse": 1, "text": "E Jesus, vendo a multidão, subiu a um monte, e, assentando-se, aproximaram-se dele os seus discípulos;" },
+            { "verse": 2, "text": "E, abrindo a sua boca, os ensinava, dizendo:" },
+            { "verse": 3, "text": "Bem-aventurados os pobres de espírito, porque deles é o reino dos céus;" },
+            { "verse": 4, "text": "Bem-aventurados os que choram, porque eles serão consolados;" },
+            { "verse": 5, "text": "Bem-aventurados os mansos, porque eles herdarão a terra;" },
+            { "verse": 6, "text": "Bem-aventurados os que têm fome e sede de justiça, porque eles serão fartos;" },
+            { "verse": 7, "text": "Bem-aventurados os misericordiosos, porque eles alcançarão misericórdia;" },
+            { "verse": 8, "text": "Bem-aventurados os limpos de coração, porque eles verão a Deus;" },
+            { "verse": 9, "text": "Bem-aventurados os pacificadores, porque eles serão chamados filhos de Deus." }
+          ]
+        },
+        {
+          "chapter": 6,
+          "verses": [
+            { "verse": 9, "text": "Portanto, vós orareis assim: Pai nosso, que estás nos céus, santificado seja o teu nome;" },
+            { "verse": 10, "text": "Venha o teu reino, seja feita a tua vontade, assim na terra como no céu;" },
+            { "verse": 11, "text": "O pão nosso de cada dia nos dá hoje;" },
+            { "verse": 12, "text": "E perdoa-nos as nossas dívidas, assim como nós perdoamos aos nossos devedores;" },
+            { "verse": 13, "text": "E não nos induzas à tentação; mas livra-nos do mal; porque teu é o reino, e o poder, e a glória, para sempre. Amém." },
+            { "verse": 33, "text": "Mas, buscai primeiro o reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Marcos",
+      "abbreviation": "Mc",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 41,
+      "chapterCount": 16,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 1, "text": "Princípio do Evangelho de Jesus Cristo, Filho de Deus;" },
+            { "verse": 15, "text": "E dizendo: O tempo está cumprido, e o reino de Deus está próximo. Arrependei-vos, e crede no evangelho." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Lucas",
+      "abbreviation": "Lc",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 42,
+      "chapterCount": 24,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 37, "text": "Porque para Deus nada é impossível." },
+            { "verse": 38, "text": "Disse então Maria: Eis aqui a serva do Senhor; cumpra-se em mim segundo a tua palavra." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "João",
+      "abbreviation": "Jo",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 43,
+      "chapterCount": 21,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 1, "text": "No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus." },
+            { "verse": 2, "text": "Ele estava no princípio com Deus." },
+            { "verse": 3, "text": "Todas as coisas foram feitas por ele, e sem ele nada do que foi feito se fez." },
+            { "verse": 4, "text": "Nele estava a vida, e a vida era a luz dos homens." },
+            { "verse": 5, "text": "E a luz resplandece nas trevas, e as trevas não a compreenderam." },
+            { "verse": 14, "text": "E o Verbo se fez carne, e habitou entre nós, e vimos a sua glória, como a glória do unigênito do Pai, cheio de graça e de verdade." }
+          ]
+        },
+        {
+          "chapter": 3,
+          "verses": [
+            { "verse": 1, "text": "E havia entre os fariseus um homem, chamado Nicodemos, príncipe dos judeus." },
+            { "verse": 2, "text": "Este foi ter de noite com Jesus, e disse-lhe: Rabino, bem sabemos que és Mestre, vindo de Deus; porque ninguém pode fazer estes sinais que tu fazes, se Deus não for com ele." },
+            { "verse": 3, "text": "Jesus respondeu, e disse-lhe: Na verdade, na verdade te digo que aquele que não nascer de novo, não pode ver o reino de Deus." },
+            { "verse": 4, "text": "Disse-lhe Nicodemos: Como pode um homem nascer, sendo velho? Pode, porventura, voltar ao ventre de sua mãe, e nascer?" },
+            { "verse": 5, "text": "Jesus respondeu: Na verdade, na verdade te digo que aquele que não nascer da água e do Espírito, não pode entrar no reino de Deus." },
+            { "verse": 16, "text": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna." },
+            { "verse": 17, "text": "Porque Deus enviou o seu Filho ao mundo, não para que condenasse o mundo, mas para que o mundo fosse salvo por ele." }
+          ]
+        },
+        {
+          "chapter": 4,
+          "verses": [
+            { "verse": 23, "text": "Mas a hora vem, e agora é, em que os verdadeiros adoradores adorarão o Pai em espírito e em verdade; porque o Pai procura a tais que assim o adorem." },
+            { "verse": 24, "text": "Deus é Espírito, e importa que os que o adoram o adorem em espírito e em verdade." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Atos",
+      "abbreviation": "At",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 44,
+      "chapterCount": 28,
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 8, "text": "Mas recebereis a virtude do Espírito Santo, que há de vir sobre vós; e ser-me-eis testemunhas, tanto em Jerusalém como em toda a Judeia e Samaria, e até aos confins da terra." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Romanos",
+      "abbreviation": "Rm",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 45,
+      "chapterCount": 16,
+      "chapters": [
+        {
+          "chapter": 8,
+          "verses": [
+            { "verse": 28, "text": "E sabemos que todas as coisas contribuem juntamente para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito." },
+            { "verse": 31, "text": "Que diremos, pois, a estas coisas? Se Deus é por nós, quem será contra nós?" },
+            { "verse": 38, "text": "Porque estou certo de que, nem a morte, nem a vida, nem os anjos, nem os principados, nem as potestades, nem o presente, nem o porvir," },
+            { "verse": 39, "text": "Nem a altura, nem a profundidade, nem alguma outra criatura nos poderá separar do amor de Deus, que está em Cristo Jesus nosso Senhor." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "1 Coríntios",
+      "abbreviation": "1Co",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 46,
+      "chapterCount": 16,
+      "chapters": [
+        {
+          "chapter": 13,
+          "verses": [
+            { "verse": 1, "text": "Ainda que eu falasse as línguas dos homens e dos anjos, e não tivesse amor, seria como o metal que soa ou como o sino que tine." },
+            { "verse": 4, "text": "O amor é sofredor, é benigno; o amor não é invejoso; o amor não trata com levidade, não se ensoberbece." },
+            { "verse": 7, "text": "Tudo sofre, tudo crê, tudo espera, tudo suporta." },
+            { "verse": 13, "text": "Agora, pois, permanecem a fé, a esperança e o amor, estes três, mas o maior destes é o amor." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Apocalipse",
+      "abbreviation": "Ap",
+      "testament": "NEW_TESTAMENT",
+      "bookOrder": 66,
+      "chapterCount": 22,
+      "chapters": [
+        {
+          "chapter": 21,
+          "verses": [
+            { "verse": 4, "text": "E Deus limpará de seus olhos toda a lágrima; e não haverá mais morte, nem pranto, nem clamor, nem dor; porque já as primeiras coisas são passadas." },
+            { "verse": 6, "text": "Disse-me mais: Está cumprido. Eu sou o Alfa e o Ômega, o princípio e o fim. A quem quer que tiver sede, de graça lhe darei da fonte da água da vida." }
+          ]
+        }
+      ]
+    }
+  ]
+}

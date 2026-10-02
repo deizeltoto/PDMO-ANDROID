@@ -1,2 +1,2 @@
 # PDMO-ANDROID
-Projeto Android em Node.js 
+Projeto Android em Kottlin, Node.js 
