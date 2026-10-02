@@ -15,13 +15,17 @@ import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.util.Date
 
+private const val DEFAULT_SERVER_URL = "http://10.0.2.2:3000"
+
 @Composable
 fun ServerScreen(onBack: () -> Unit) {
     val context = LocalContext.current.applicationContext
     val preferences = remember { context.getSharedPreferences("server_settings", 0) }
     val repository = remember { CatalogSyncRepository(AppDatabase.getDatabase(context)) }
     val scope = rememberCoroutineScope()
-    var address by remember { mutableStateOf(preferences.getString("url", "http://10.0.2.2:3000") ?: "") }
+    var address by remember {
+        mutableStateOf(preferences.getString("url", null)?.takeIf { it.isNotBlank() } ?: DEFAULT_SERVER_URL)
+    }
     var busy by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf("") }
     var failed by remember { mutableStateOf(false) }
@@ -30,14 +34,15 @@ fun ServerScreen(onBack: () -> Unit) {
 
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         TextButton(onClick = onBack, enabled = !busy) { Text("Voltar") }
-        Text("Servidor e sincronização", style = MaterialTheme.typography.headlineSmall)
+        Text("Servidor e sincronização", style = MaterialTheme.typography.titleLarge)
         Text("Receba os conteúdos publicados no painel. Após sincronizar, pode continuar a ler sem internet.")
         OutlinedTextField(value = address, onValueChange = { address = it }, label = { Text("Endereço do servidor") }, singleLine = true, enabled = !busy, modifier = Modifier.fillMaxWidth())
         Text("Emulador: http://10.0.2.2:3000\nTelemóvel: use o IP do computador na mesma rede. HTTP local está disponível na versão de desenvolvimento.", style = MaterialTheme.typography.bodySmall)
         Text("A sincronização substitui o catálogo local pelo catálogo deste servidor. Favoritos dos registos existentes são mantidos.")
         Button(enabled = !busy, onClick = {
             busy = true; failed = false; message = "A sincronizar…"
-            preferences.edit().putString("url", address.trim()).apply()
+            address = address.trim().ifBlank { DEFAULT_SERVER_URL }
+            preferences.edit().putString("url", address).apply()
             scope.launch {
                 try {
                     message = repository.synchronize(address)

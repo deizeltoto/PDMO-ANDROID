@@ -73,7 +73,7 @@ fun ContentsScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = "Conteúdos",
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )

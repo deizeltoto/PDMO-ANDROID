@@ -189,6 +189,14 @@ private fun SongDetailContent(
                                 color = MaterialTheme.colorScheme.outline
                             )
                         }
+                        if (song.audioUrl.isNullOrBlank()) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "Áudio indisponível",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
+                            )
+                        }
                     }
                 }
 

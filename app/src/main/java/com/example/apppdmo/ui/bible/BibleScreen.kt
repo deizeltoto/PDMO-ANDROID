@@ -127,7 +127,7 @@ private fun BibleMainContent(
                 Column {
                     Text(
                         text = "Bíblia Sagrada",
-                        style = MaterialTheme.typography.headlineMedium,
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
                     )

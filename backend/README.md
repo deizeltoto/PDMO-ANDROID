@@ -36,7 +36,7 @@ No detalhe do cântico, a aplicação mostra o leitor acima da letra: reproduzir
 O servidor acrescenta a coluna `songs.audioUrl` automaticamente nas bases existentes. A migração Room **5 → 6** acrescenta a mesma coluna sem apagar dados ou favoritos. Servidores antigos sem o campo continuam compatíveis; aplicações antigas ignoram o novo campo.
 
 1. Compile/instale a versão **debug** actualizada da aplicação.
-2. Abra **Servidor**, no topo da aplicação.
+2. Na página inicial, abra **Sobre a Comunidade → Servidor e sincronização**. O endereço predefinido é `http://10.0.2.2:3000` e pode ser alterado.
 3. No emulador Android padrão, use `http://10.0.2.2:3000`.
 4. Num telemóvel, use `http://IP-DO-COMPUTADOR:3000`, na mesma rede Wi-Fi. Consulte o IPv4 do computador com `ipconfig`; a firewall deve permitir a porta configurada na rede privada.
 5. Toque em **Sincronizar agora**. O resultado e a última sincronização aparecem no ecrã.

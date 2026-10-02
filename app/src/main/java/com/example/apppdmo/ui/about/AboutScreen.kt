@@ -22,6 +22,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AboutScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToServer: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -152,6 +154,15 @@ fun AboutScreen(
                 InfoSectionTitle("LOCALIZAÇÃO")
                 ContactRow(icon = Icons.Default.LocationOn, label = "Endereço", value = "Dondo, Sofala, Moçambique")
                 Spacer(modifier = Modifier.height(28.dp))
+            }
+            item {
+                OutlinedButton(
+                    onClick = onNavigateToServer,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Servidor e sincronização")
+                }
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }

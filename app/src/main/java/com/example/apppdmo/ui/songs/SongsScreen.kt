@@ -68,7 +68,7 @@ fun SongsScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = "Cânticos",
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )

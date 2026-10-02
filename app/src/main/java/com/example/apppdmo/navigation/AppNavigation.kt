@@ -2,13 +2,12 @@ package com.example.apppdmo.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import com.example.apppdmo.ui.server.ServerScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -50,14 +49,6 @@ fun AppNavigation(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = {
-            TextButton(
-                modifier = Modifier.statusBarsPadding(),
-                onClick = { navController.navigate("server") { launchSingleTop = true } }
-            ) {
-                Text("Servidor")
-            }
-        },
         bottomBar = {
             NavigationBar {
                 BottomNavItem.items.forEach { item ->
@@ -93,7 +84,7 @@ fun AppNavigation(
         NavHost(
             navController = navController,
             startDestination = Screen.Home.route,
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding).consumeWindowInsets(innerPadding)
         ) {
             composable("server") {
                 ServerScreen(onBack = { navController.popBackStack() })
@@ -248,7 +239,8 @@ fun AppNavigation(
 
             composable(Screen.About.route) {
                 AboutScreen(
-                    onNavigateBack = { navController.popBackStack() }
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToServer = { navController.navigate("server") { launchSingleTop = true } }
                 )
             }
         }

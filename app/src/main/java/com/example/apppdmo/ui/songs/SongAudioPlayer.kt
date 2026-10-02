@@ -25,7 +25,6 @@ import java.util.Locale
 @Composable
 fun SongAudioPlayer(audioUrl: String?, songId: Int, modifier: Modifier = Modifier) {
     if (audioUrl.isNullOrBlank()) {
-        Text("Áudio ainda não disponível para este cântico.", modifier.padding(16.dp), style = MaterialTheme.typography.bodySmall)
         return
     }
     val context = LocalContext.current.applicationContext
