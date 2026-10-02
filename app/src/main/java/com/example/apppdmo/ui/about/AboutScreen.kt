@@ -142,15 +142,15 @@ fun AboutScreen(
 
             item {
                 InfoSectionTitle("CONTACTOS")
-                ContactRow(icon = Icons.Default.Church, label = "Telefone", value = "+244 923 000 000")
+                ContactRow(icon = Icons.Default.Church, label = "Telefone", value = "+258 85 359 2701")
                 Spacer(modifier = Modifier.height(8.dp))
-                ContactRow(icon = Icons.Default.Email, label = "E-mail", value = "contacto@verbum.org")
+                ContactRow(icon = Icons.Default.Email, label = "E-mail", value = "contacto@verbum.mz")
                 HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
             }
 
             item {
                 InfoSectionTitle("LOCALIZAÇÃO")
-                ContactRow(icon = Icons.Default.LocationOn, label = "Endereço", value = "Av. da Comunidade, Luanda, Angola")
+                ContactRow(icon = Icons.Default.LocationOn, label = "Endereço", value = "Dondo, Sofala, Moçambique")
                 Spacer(modifier = Modifier.height(28.dp))
             }
         }

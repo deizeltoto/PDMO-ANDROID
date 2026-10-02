@@ -30,6 +30,36 @@ async function fixture(t, token = 'test-admin-token') {
 }
 const content = { title: 'Teste de integração', description: 'Descrição', body: 'Texto completo', author: 'Autor', type: 'ESTUDO', imageUrl: null };
 
+test('áudio do cântico: criação, sincronização, compatibilidade e remoção', async t => {
+  const { request } = await fixture(t);
+  const song = { number: 100, title: 'Com áudio', category: 'Louvor', lyrics: 'Letra completa', author: null, audioUrl: 'https://example.com/cantico.mp3' };
+  const created = await request('/api/songs', 'POST', song);
+  assert.equal(created.status, 201);
+  assert.equal(created.body.audioUrl, song.audioUrl);
+  const id = created.body.id;
+  const synced = (await request('/api/sync')).body.songs.find(item => item.id === id);
+  assert.equal(synced.audioUrl, song.audioUrl);
+  assert.equal(synced.lyrics, song.lyrics);
+  const { audioUrl, ...legacy } = song;
+  assert.equal((await request(`/api/songs/${id}`, 'PUT', legacy)).body.audioUrl, audioUrl);
+  for (const invalid of ['javascript:alert(1)', 'file:///audio.mp3', 'https://user:password@example.com/audio.mp3', 'nao-e-url']) {
+    assert.equal((await request(`/api/songs/${id}`, 'PUT', { ...song, audioUrl: invalid })).status, 400);
+  }
+  assert.equal((await request(`/api/songs/${id}`, 'PUT', { ...song, audioUrl: null })).body.audioUrl, null);
+  assert.equal((await request('/api/songs/1')).body.audioUrl, null);
+});
+
+test('migração do banco antigo conserva os cânticos e acrescenta áudio opcional', async t => {
+  const { db, filename } = await fixture(t);
+  const original = db.prepare('SELECT id, lyrics FROM songs ORDER BY id').all();
+  db.exec('ALTER TABLE songs DROP COLUMN audioUrl');
+  const migrated = openDatabase(filename);
+  try {
+    assert.deepEqual(migrated.prepare('SELECT id, lyrics FROM songs ORDER BY id').all(), original);
+    assert.equal(migrated.prepare('SELECT audioUrl FROM songs LIMIT 1').get().audioUrl, null);
+  } finally { migrated.close(); }
+});
+
 test('API pública, painel e contrato completo de sincronização', async t => {
   const { request, base } = await fixture(t);
   assert.equal((await request('/api/health')).body.status, 'ok');

@@ -74,6 +74,10 @@ class BibleRepositoryImpl(
         return lastReadPreferences.lastReadFlow
     }
 
+    /**
+     * Garante que os dados da Bíblia (livros e versículos) sejam populados no Room
+     * a partir do arquivo JSON nos assets na primeira execução (offline-first).
+     */
     override suspend fun ensureBibleDataSeeded(context: Context) {
         withContext(Dispatchers.IO) {
           com.example.apppdmo.data.remote.SyncCoordinator.seed(database) {

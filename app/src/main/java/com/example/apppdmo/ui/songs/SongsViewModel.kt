@@ -54,6 +54,8 @@ class SongsViewModel(
             } catch (_: Exception) {
             }
 
+            // Combina a consulta de pesquisa (com debounce para evitar reconsultas excessivas)
+            // e a aba selecionada (Todos vs Favoritos) para buscar os cânticos de forma reativa.
             val songsFlow = combine(_searchQuery.debounce(200), _selectedTab) { query, tab ->
                 Pair(query, tab)
             }.flatMapLatest { (query, tab) ->

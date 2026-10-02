@@ -34,7 +34,7 @@ import kotlinx.coroutines.withContext
         FavoriteContentEntity::class,
         SyncStateEntity::class
     ],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -59,6 +59,11 @@ abstract class AppDatabase : RoomDatabase() {
                     .addMigrations(object : Migration(4, 5) {
                         override fun migrate(db: SupportSQLiteDatabase) {
                             db.execSQL("CREATE TABLE IF NOT EXISTS sync_state (id INTEGER NOT NULL PRIMARY KEY, serverUrl TEXT NOT NULL, syncedAt INTEGER NOT NULL)")
+                        }
+                    })
+                    .addMigrations(object : Migration(5, 6) {
+                        override fun migrate(db: SupportSQLiteDatabase) {
+                            db.execSQL("ALTER TABLE songs ADD COLUMN audioUrl TEXT")
                         }
                     })
                     .fallbackToDestructiveMigration()

@@ -1,7 +1,7 @@
 'use strict';
 const definitions = {
   contents: { label: 'Conteúdos', fields: { title: ['Título'], description: ['Descrição', 'textarea'], body: ['Texto completo', 'textarea'], author: ['Autor'], type: ['Tipo', ['ESTUDO','Pregação','ARTIGO']], imageUrl: ['URL da imagem', 'url', true] } },
-  songs: { label: 'Cânticos', fields: { number: ['Número', 'number'], title: ['Título'], category: ['Categoria'], lyrics: ['Letra', 'textarea'], author: ['Autor', 'text', true] } },
+  songs: { label: 'Cânticos', fields: { number: ['Número', 'number'], title: ['Título'], category: ['Categoria'], lyrics: ['Letra', 'textarea'], author: ['Autor', 'text', true], audioUrl: ['Link directo do áudio', 'url', true] } },
   'daily-messages': { label: 'Mensagens do dia', fields: { message: ['Mensagem', 'textarea'], bibleReference: ['Referência bíblica'], date: ['Data', 'date'] } },
   books: { label: 'Livros da Bíblia', fields: { name: ['Nome'], abbreviation: ['Abreviatura'], testament: ['Testamento', ['OLD_TESTAMENT', 'NEW_TESTAMENT']], bookOrder: ['Ordem', 'number'], chapterCount: ['Total de capítulos', 'number'] } },
   verses: { label: 'Versículos', fields: { bookId: ['Livro', 'book'], chapter: ['Capítulo', 'number'], verse: ['Versículo', 'number'], text: ['Texto', 'textarea'] } }
@@ -69,6 +69,29 @@ async function edit(item = null) {
     input.disabled = !token || Boolean(item && resource === 'verses' && ['bookId','chapter','verse'].includes(key));
     field.append(input); $('fields').append(field);
   }
+  if (resource === 'songs') {
+    const help = document.createElement('p');
+    help.textContent = 'Use um link directo para MP3, M4A, OGG ou WAV acessível pelo telemóvel. Links de páginas do YouTube não são ficheiros de áudio. Deixe vazio para manter apenas a letra.';
+    const audio = document.createElement('audio');
+    audio.controls = true; audio.preload = 'none'; audio.id = 'audioPreview';
+    audio.setAttribute('aria-label', 'Pré-escuta do cântico');
+    const previewStatus = document.createElement('p');
+    previewStatus.setAttribute('role', 'status');
+    const input = $('editForm').elements.namedItem('audioUrl');
+    const updateAudio = () => {
+      audio.pause(); audio.removeAttribute('src'); audio.load();
+      const value = input.value.trim();
+      let valid = false;
+      try { const url = new URL(value); valid = ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password; } catch { }
+      audio.hidden = !valid;
+      previewStatus.textContent = value && !valid ? 'Informe um link HTTP ou HTTPS válido.' : '';
+      if (valid) audio.src = value;
+    };
+    audio.addEventListener('error', () => { if (audio.hasAttribute('src')) previewStatus.textContent = 'Não foi possível ouvir este áudio. Verifique o link, o acesso e o formato.'; });
+    input.addEventListener('change', updateAudio);
+    $('fields').append(help, audio, previewStatus);
+    updateAudio();
+  }
   $('save').hidden = !token; $('save').disabled = false; $('cancel').textContent = token ? 'Cancelar' : 'Fechar';
   $('editor').showModal();
 }
@@ -97,6 +120,10 @@ $('login').addEventListener('submit', async event => {
 $('logout').addEventListener('click', () => { token = ''; authState(); status('Sessão terminada.'); load(); });
 $('new').addEventListener('click', () => edit());
 $('cancel').addEventListener('click', () => $('editor').close());
+$('editor').addEventListener('close', () => {
+  const audio = $('audioPreview');
+  if (audio) { audio.pause(); audio.removeAttribute('src'); audio.load(); }
+});
 $('refresh').addEventListener('click', () => { status(''); load(); });
 $('searchForm').addEventListener('submit', event => { event.preventDefault(); load(); });
 api('/health').then(() => { $('connection').textContent = 'Servidor disponível'; }).catch(() => { $('connection').textContent = 'Sem ligação'; });

@@ -25,6 +25,16 @@ Variáveis: `HOST` (predefinido `0.0.0.0`), `PORT` (3000), `ADMIN_TOKEN`, `DB_PA
 
 ## Comunicar com a aplicação
 
+### Cânticos com áudio e letra
+
+No painel, abra **Cânticos → Editar/Novo**, escreva a letra e preencha **Link directo do áudio** com o endereço HTTP/HTTPS de um ficheiro MP3, M4A, OGG ou WAV. Pode ouvir uma pré-escuta no próprio formulário. Guarde e sincronize a aplicação. O endereço deve ser acessível pelo telemóvel (não use `localhost` para apontar ao computador). Em produção use HTTPS. Links para páginas do YouTube/Spotify não são links directos de áudio.
+
+No detalhe do cântico, a aplicação mostra o leitor acima da letra: reproduzir/pausar, progresso, avanço e duração. O leitor permanece disponível ao percorrer a letra e pausa ao sair da página, passar a aplicação para segundo plano, perder foco de áudio ou desligar auscultadores. Erros de ligação/formato mostram uma mensagem e permitem tentar novamente.
+
+`audioUrl` é opcional. Sem áudio, a letra continua a funcionar. Para remover o áudio, limpe o campo no painel e guarde. A letra fica disponível offline; **o áudio é transmitido pela rede e não é descarregado para uso offline**. Esta versão usa links para ficheiros já alojados; não inclui upload de áudio nem letra sincronizada por tempo.
+
+O servidor acrescenta a coluna `songs.audioUrl` automaticamente nas bases existentes. A migração Room **5 → 6** acrescenta a mesma coluna sem apagar dados ou favoritos. Servidores antigos sem o campo continuam compatíveis; aplicações antigas ignoram o novo campo.
+
 1. Compile/instale a versão **debug** actualizada da aplicação.
 2. Abra **Servidor**, no topo da aplicação.
 3. No emulador Android padrão, use `http://10.0.2.2:3000`.
@@ -66,7 +76,7 @@ data/pdmo.sqlite               Banco gerado localmente (ignorado pelo Git)
 | Tabela | Campos principais | Regras |
 | --- | --- | --- |
 | `contents` | id, title, description, body, author, type, imageUrl, createdAt | Tipo: `ESTUDO`, `Pregação` ou `ARTIGO`; timestamp em ms |
-| `songs` | id, number, title, category, lyrics, author | Número positivo e único |
+| `songs` | id, number, title, category, lyrics, author, audioUrl | Número positivo e único; áudio HTTP/HTTPS opcional |
 | `daily_messages` | id, message, bibleReference, date | Data `AAAA-MM-DD`; a aplicação mostra a mensagem com maior ID |
 | `bible_books` | id, name, abbreviation, testament, bookOrder, chapterCount | Ordem única; testamento `OLD_TESTAMENT` ou `NEW_TESTAMENT` |
 | `bible_verses` | id, bookId, chapter, verse, text | FK para livro; referência única `(bookId, chapter, verse)` |
@@ -118,9 +128,9 @@ As notificações existentes continuam locais; este servidor não implementa Fir
 
 ## Validação
 
-`npm test` executa oito testes de integração cobrindo o contrato Android, interface estática, CRUD, pesquisa, autenticação, validação, referências bíblicas, IDs estáveis, revisão e persistência ao reabrir SQLite. Cada teste usa uma base temporária isolada.
+`npm test` executa dez testes de integração cobrindo o contrato Android, áudio, migração do banco, interface estática, CRUD, pesquisa, autenticação, validação, referências bíblicas, IDs estáveis, revisão e persistência ao reabrir SQLite. Cada teste usa uma base temporária isolada.
 
-Validação desta implementação: **8 testes da API passaram**, **3 testes Android passaram no emulador** e **APK debug compilado com sucesso**. `CatalogSyncTest` usa Room em memória e um servidor HTTP temporário para verificar substituição de dados/favoritos, catálogo vazio sem reinserir exemplos e rollback após falha. Os dados reais do dispositivo não são usados nesses testes.
+Validação desta implementação: **10 testes da API passaram**, **5 testes Android passaram no emulador** e **APK debug compilado com sucesso**. `CatalogSyncTest` usa Room em memória e um servidor HTTP temporário para verificar substituição de dados/favoritos, catálogo vazio sem reinserir exemplos, áudio com letra e rollback após falha. `SongAudioTest` gera um WAV silencioso temporário e valida carregar, reproduzir, pausar, avançar e libertar o leitor. Os testes de sincronização não usam os dados reais do dispositivo.
 
 Neste ambiente Windows, o Java apresentou `Unable to establish loopback connection`. A compilação foi concluída com o Java do Android Studio e a opção de processo `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\pdmo-unused-socket-dir`, usando o fallback TCP do Java. Essa opção não foi gravada nas configurações do projecto ou do sistema.
 

@@ -125,6 +125,7 @@ private fun SongDetailContent(
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
+        SongAudioPlayer(audioUrl = song.audioUrl, songId = song.id)
         LazyColumn(
             modifier = Modifier
                 .weight(1f)

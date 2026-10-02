@@ -47,7 +47,12 @@ class CatalogSyncRepository(private val database: AppDatabase) {
             ContentEntity(it.positiveId().toLong(), it.getString("title"), it.getString("description"), it.getString("body"), it.getString("author"), it.getString("type"), it.nullableString("imageUrl"), it.getLong("createdAt"))
         }
         val songs = payload.getJSONArray("songs").objects().map {
-            SongEntity(it.positiveId(), it.getInt("number"), it.getString("title"), it.getString("category"), it.getString("lyrics"), it.nullableString("author"))
+            val audioUrl = it.nullableString("audioUrl")?.trim()?.takeIf { value -> value.isNotEmpty() }
+            if (audioUrl != null) {
+                val audio = URL(audioUrl)
+                require(audio.protocol in listOf("http", "https") && audio.host.isNotBlank() && audio.userInfo == null) { "Link de áudio inválido." }
+            }
+            SongEntity(it.positiveId(), it.getInt("number"), it.getString("title"), it.getString("category"), it.getString("lyrics"), it.nullableString("author"), audioUrl)
         }
         val messages = payload.getJSONArray("dailyMessages").objects().map {
             DailyMessageEntity(it.positiveId().toLong(), it.getString("message"), it.getString("bibleReference"), it.getString("date"))
@@ -98,7 +103,7 @@ class CatalogSyncRepository(private val database: AppDatabase) {
     }
 
     private fun JSONArray.objects(): List<JSONObject> = (0 until length()).map { getJSONObject(it) }
-    private fun JSONObject.nullableString(key: String): String? = if (isNull(key)) null else getString(key)
+    private fun JSONObject.nullableString(key: String): String? = if (!has(key) || isNull(key)) null else getString(key)
     private fun JSONObject.positiveId(): Int {
         val id = getLong("id")
         require(id in 1..Int.MAX_VALUE.toLong()) { "ID fora do intervalo suportado." }

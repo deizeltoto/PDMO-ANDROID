@@ -92,6 +92,22 @@ class CatalogSyncTest {
         assertEquals(0, database.songDao().getSongCount())
     }
 
+    @Test fun syncsAudioWithLyricsAndAcceptsOlderServers() = runBlocking {
+        val withAudio = snapshot().apply {
+            getJSONArray("songs").getJSONObject(0).put("audioUrl", "https://example.com/cantico.mp3")
+        }
+        sync(withAudio.toString())
+        assertEquals("https://example.com/cantico.mp3", database.songDao().getSongById(1).first()?.audioUrl)
+        assertEquals("Letra", database.songDao().getSongById(1).first()?.lyrics)
+        val invalid = snapshot().apply {
+            getJSONArray("songs").getJSONObject(0).put("audioUrl", "https://user:password@example.com/audio.mp3")
+        }
+        try { sync(invalid.toString()); fail("URL com credenciais foi aceite") } catch (_: IllegalArgumentException) { }
+        assertEquals("https://example.com/cantico.mp3", database.songDao().getSongById(1).first()?.audioUrl)
+        sync(snapshot().toString())
+        assertNull(database.songDao().getSongById(1).first()?.audioUrl)
+    }
+
     @Test fun invalidPayloadAndFailedTransactionKeepPreviousCatalog() = runBlocking {
         sync(snapshot().toString())
         val originalState = repository.lastSync()

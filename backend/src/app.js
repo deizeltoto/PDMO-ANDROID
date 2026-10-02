@@ -9,7 +9,7 @@ function createApp(db, { adminToken = '' } = {}) {
   app.disable('x-powered-by');
   app.use((req, res, next) => {
     res.set('X-Content-Type-Options', 'nosniff');
-    res.set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
+    res.set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; media-src 'self' https: http:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
     next();
   });
   app.use(express.json({ limit: '1mb' }));

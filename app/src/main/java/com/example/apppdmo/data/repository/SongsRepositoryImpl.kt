@@ -78,7 +78,8 @@ class SongsRepositoryImpl(
                                 title = title,
                                 category = category,
                                 lyrics = lyrics,
-                                author = author
+                                author = author,
+                                audioUrl = if (obj.has("audioUrl") && !obj.isNull("audioUrl")) obj.getString("audioUrl") else null
                             )
                         )
                     }

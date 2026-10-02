@@ -25,6 +25,9 @@ class NotificationManager(
         createNotificationChannel()
     }
 
+    /**
+     * Cria o canal de notificação para dispositivos Android 8.0 (API 26) ou superior.
+     */
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
@@ -37,6 +40,10 @@ class NotificationManager(
         }
     }
 
+    /**
+     * Exibe a notificação local da Mensagem do Dia, verificando permissões no Android 13+
+     * e configurando a abertura da MainActivity ao tocar na notificação.
+     */
     fun showDailyMessageNotification(title: String, message: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(

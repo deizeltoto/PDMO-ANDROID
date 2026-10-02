@@ -10,5 +10,6 @@ data class SongEntity(
     val title: String,
     val category: String,
     val lyrics: String,
-    val author: String? = null
+    val author: String? = null,
+    val audioUrl: String? = null
 )

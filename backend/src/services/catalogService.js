@@ -37,6 +37,7 @@ class CatalogService {
     const data = {};
     for (const [key, kind] of Object.entries(config.fields)) {
       let value = body[key];
+      if (key === 'audioUrl' && value === undefined) value = existing?.audioUrl ?? null;
       if (key === 'createdAt' && value === undefined) value = existing?.createdAt ?? Date.now();
       if (typeof value === 'string') value = value.trim();
       if (typeof kind === 'string' && kind.endsWith('?') && (value == null || value === '')) { data[key] = null; continue; }
@@ -48,8 +49,11 @@ class CatalogService {
       if (Array.isArray(kind) && !kind.includes(value)) throw new HttpError(400, `${key}: escolha ${kind.join(', ')}.`);
       if (kind === 'date' && (!/^\d{4}-\d{2}-\d{2}$/.test(value) || !Number.isFinite(Date.parse(value)) || new Date(value).toISOString().slice(0,10) !== value)) throw new HttpError(400, 'Data inválida (AAAA-MM-DD).');
       if (kind === 'url?') {
-        try { if (!['http:', 'https:'].includes(new URL(value).protocol)) throw new Error(); }
-        catch { throw new HttpError(400, 'URL da imagem inválida.'); }
+        try {
+          const url = new URL(value);
+          if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) throw new Error();
+        }
+        catch { throw new HttpError(400, `${key}: informe um URL HTTP ou HTTPS válido, sem credenciais.`); }
       }
       data[key] = value;
     }

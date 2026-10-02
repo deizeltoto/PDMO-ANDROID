@@ -12,6 +12,10 @@ function openDatabase(filename) {
   const db = new DatabaseSync(filename);
   db.exec('PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA busy_timeout = 5000;');
   db.exec(fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8'));
+  // Migração aditiva: conserva os cânticos e os IDs das bases já existentes.
+  if (!db.prepare('PRAGMA table_info(songs)').all().some(column => column.name === 'audioUrl')) {
+    db.exec('ALTER TABLE songs ADD COLUMN audioUrl TEXT');
+  }
   if (!db.prepare("SELECT 1 FROM metadata WHERE key = 'seeded'").get()) {
     transaction(db, () => {
       const assets = path.resolve(__dirname, '../../..', 'app/src/main/assets');
@@ -23,7 +27,7 @@ function openDatabase(filename) {
         const date = Date.UTC(Number(parts[2]), months.indexOf(parts[1]), Number(parts[0]));
         db.prepare('INSERT INTO contents VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run(item.id, item.title, item.description, item.body, item.author, item.type, item.imageUrl ?? null, Number.isFinite(date) ? date : Date.now());
       }
-      for (const item of read('songs')) db.prepare('INSERT INTO songs VALUES (?, ?, ?, ?, ?, ?)').run(item.id, item.number, item.title, item.category, item.lyrics, item.author ?? null);
+      for (const item of read('songs')) db.prepare('INSERT INTO songs(id, number, title, category, lyrics, author, audioUrl) VALUES (?, ?, ?, ?, ?, ?, ?)').run(item.id, item.number, item.title, item.category, item.lyrics, item.author ?? null, item.audioUrl ?? null);
       for (const book of read('bible').books) {
         db.prepare('INSERT INTO bible_books VALUES (?, ?, ?, ?, ?, ?)').run(book.id, book.name, book.abbreviation, book.testament, book.bookOrder, book.chapterCount);
         for (const chapter of book.chapters ?? []) for (const verse of chapter.verses) {
